@@ -34,6 +34,7 @@ const LoginForm = () => {
                 <label htmlFor='username'>⌨ | </label>
                 <input type = 'text' {...register('username', usernameRequirement)} placeholder = 'What is your name?'/>
             </form>
+            <button>Continue</button>
         </>
         )
 }
