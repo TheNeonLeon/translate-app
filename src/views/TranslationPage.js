@@ -1,5 +1,5 @@
 import React from 'react';
-import TranslationUserInputForm from '../components/translation/TranslationUserInputForm';
+import TranslationUserInputForm from '../components/Translation/TranslationUserInputForm';
 
 const TranslationPage = () => {
   return (
