@@ -4,8 +4,7 @@ import { Navigate } from "react-router-dom";
 
 //Variable that shows the user needs to input a name
 const usernameRequirement = {
-    required: true,
-    minLength: 2
+    required: true
 }
 
 //Function to Login
@@ -20,15 +19,23 @@ const LoginForm = () => {
     //onSubmit - prevents page from reloading
     const onSubmit = (data) => {
         console.log(data)
-        
-    }
+    };
 
     console.log(errors)
-        //Effect - function to navigate to Translation Page if username is output
-        
-        
 
-        //displayErrorMessage - function that display error message if requirements not succeeding
+    //displayErrorMessage - function that display error message if th username requirements is not succeeding
+    const displayErrorMessage = (() => {
+        if (!errors.username) {
+            return null
+        }
+
+        if (errors.username.type === 'required') {
+            return <span>You must enter your name to proceed</span>
+        }
+    })()
+        //Effect - function to navigate to Translation Page if username is output
+
+        
 
         return (
         <>
@@ -40,8 +47,7 @@ const LoginForm = () => {
                 placeholder = 'What is your name?'/>
 
                 <button type = 'submit'>▶</button><br></br>
-                { (errors.username && errors.username.type === 'required') && <span>You need to enter your name</span>}
-                { (errors.username && errors.username.type === 'minLength') && <span>The name is too short ... (min.2)</span>}
+                { displayErrorMessage }
             </form>
         </>
         )
