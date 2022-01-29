@@ -4,6 +4,12 @@ import LoginPage from './views/LoginPage';
 import TranslationPage from './views/TranslationPage';
 import ProfilePage from './views/ProfilePage';
 
+import {
+  BrowserRouter,
+  Route,
+  Routes
+} from 'react-router-dom';
+
 function App() {
   return (
     <BrowserRouter>
