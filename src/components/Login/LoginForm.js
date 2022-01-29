@@ -20,8 +20,10 @@ const LoginForm = () => {
     //onSubmit - prevents page from reloading
     const onSubmit = (data) => {
         console.log(data)
+        
     }
-    
+
+    console.log(errors)
         //Effect - function to navigate to Translation Page if username is output
         
         
@@ -32,9 +34,15 @@ const LoginForm = () => {
         <>
             <form onSubmit={ handleSubmit(onSubmit) }>
                 <label htmlFor='username'>⌨ | </label>
-                <input type = 'text' {...register('username', usernameRequirement)} placeholder = 'What is your name?'/>
+                <input 
+                type = 'text' 
+                {...register('username', usernameRequirement)} 
+                placeholder = 'What is your name?'/>
+
+                <button type = 'submit'>▶</button><br></br>
+                { (errors.username && errors.username.type === 'required') && <span>You need to enter your name</span>}
+                { (errors.username && errors.username.type === 'minLength') && <span>The name is too short ... (min.2)</span>}
             </form>
-            <button>Continue</button>
         </>
         )
 }
