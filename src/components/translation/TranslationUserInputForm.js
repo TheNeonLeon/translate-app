@@ -9,7 +9,7 @@ const TranslationUserInputForm = (props) => {
 
     const onSubmit = ({translationInput}) => {
         
-        props.sendTranslation(translationInput);
+        props.performTranslation(translationInput);
     }
 
     const errorMessage = (() => {

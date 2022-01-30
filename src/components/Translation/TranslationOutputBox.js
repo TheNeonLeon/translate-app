@@ -8,3 +8,4 @@ const TranslationOutputBox = (props) => {
         </>
     )
 }
+export default TranslationOutputBox
