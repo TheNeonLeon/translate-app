@@ -1,7 +1,7 @@
 //Imports
 import { headerCreate } from './helper'
 
-const userApiUrl = 'https://lechan-noroff-api.herokuapp.com/translations';
+const userApiUrl = process.env.BASE_API_URL;
 
 //userCheck - Function to check if the user exist in the database
 const userCheck = async (username) => {
@@ -27,11 +27,11 @@ const userCreate = async (username) => {
             headers: headerCreate(),
             body: JSON.stringify({
                 username,
-                orders: []
+                translations: []
             })
         })
         if (!response.ok) {
-            throw new Error (`User with the username ${username} could not be created.`)
+            throw new Error (`Your name has to be something, right?`)
         }
         const data = await response.json
         return [ null, data ]
