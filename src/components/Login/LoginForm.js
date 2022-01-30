@@ -1,13 +1,15 @@
+//Imports
 import { useEffect } from "react";
 import { appendErrors, useForm } from "react-hook-form";
 import { Navigate } from "react-router-dom";
+import { userLogin } from '../../api/user'
 
 //Variable that shows the user needs to input a name
 const usernameRequirement = {
     required: true
 }
 
-//Function to Login
+//LoginForm - Function to Login
 const LoginForm = () => {
 
     const {
