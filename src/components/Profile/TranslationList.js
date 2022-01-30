@@ -1,9 +1,13 @@
 import React from 'react';
 
-export const TranslationList = () => {
+ const TranslationList = () => {
   return (
   <div>
-      
+      <ul>
+          
+      </ul>
   </div>
   );
 };
+
+export default TranslationList
