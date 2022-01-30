@@ -48,7 +48,7 @@ const LoginForm = () => {
                 <input 
                 type = 'text' 
                 {...register('username', usernameRequirement)} 
-                placeholder = 'What is your name?'/>
+                placeholder = "What's your name?"/>
 
                 <button type = 'submit'>▶</button><br></br>
                 { displayErrorMessage }
