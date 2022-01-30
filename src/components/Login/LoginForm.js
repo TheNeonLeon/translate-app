@@ -18,9 +18,11 @@ const LoginForm = () => {
         formState: { errors }
     } = useForm();
 
-    //onSubmit - prevents page from reloading
-    const onSubmit = (data) => {
-        console.log(data)
+    //onSubmit - function that prevents page from reloading
+    const onSubmit = async ({ username }) => {
+        const [ error, user] = await userLogin(username)
+        console.log('Error in the login:', error)
+        console.log('The user', user)
     };
 
     console.log(errors)
