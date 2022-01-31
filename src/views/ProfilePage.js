@@ -1,7 +1,8 @@
 import React from 'react';
+import withAuth from '../hoc/withAuth';
 
 const ProfilePage = () => {
   return <div></div>;
 };
 
-export default ProfilePage;
+export default withAuth(ProfilePage);
