@@ -1,6 +1,7 @@
 import {React, useState, useEffect} from 'react';
 import TranslationUserInputForm from '../components/Translation/TranslationUserInputForm';
 import TranslationOutputBox from '../components/Translation/TranslationOutputBox';
+import withAuth from '../hoc/withAuth';
 
 const TranslationPage = () => {
 
