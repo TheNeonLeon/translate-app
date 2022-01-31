@@ -1,7 +1,6 @@
 //Imports
 import { headerCreate } from './helper'
-
-const userApiUrl = process.env.BASE_API_URL;
+const userApiUrl = process.env.REACT_APP_BASE_API_URL;
 
 //userCheck - Function to check if the user exist in the database
 const userCheck = async (username) => {
