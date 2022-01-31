@@ -5,7 +5,7 @@ const translationConfig = {
     required: true
 }
 const TranslationUserInputForm = (props) => {
-    const {translate, handleSubmit, formState: {errors}} = useForm();
+    const {register, handleSubmit, formState: {errors}} = useForm();
 
     const onSubmit = ({translationInput}) => {
         
@@ -26,7 +26,7 @@ const TranslationUserInputForm = (props) => {
             <form onSubmit={handleSubmit(onSubmit)}>
                 <fieldset>
                     <label htmlFor="translationInput">Text to translate: </label>
-                    <input type="text"  {...translate("translationInput", translationConfig)} />
+                    <input type="text"  {...register("translationInput", translationConfig)} />
                     {errorMessage}
                 </fieldset>
                 <button type="submit" >Translate</button>

@@ -16,8 +16,8 @@ const TranslationPage = () => {
 
     return (
       <div>
-        <TranslationUserInputForm performTranslation="processText" />
-        <TranslationOutputBox translation="translationArray"/>
+        <TranslationUserInputForm performTranslation={processText} />
+        <TranslationOutputBox translation={translationArray}/>
       </div>
     )
   };
