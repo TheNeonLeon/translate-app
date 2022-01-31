@@ -7,14 +7,14 @@ export const useTranslations = () => {
     return useContext(TranslationsContext);
 }
 
-const storageRead = (key) => {
+/*const storageRead = (key) => {
     const user = localStorage.getItem(key);
     return user.translations;
-}
+}*/
 
 const TranslationsProvider = ({children}) => {
 
-    const [translations, setTranslations] = useState(storageRead('user'));
+    const [translations, setTranslations] = useState(null);
 
     const state = {
         translations,
