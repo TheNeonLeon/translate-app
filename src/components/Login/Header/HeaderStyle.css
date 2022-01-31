@@ -1,0 +1,25 @@
+header{
+    background-color: #FFC75F;
+    margin: 0;
+    padding: 0;
+    border-bottom: #8080804a 5px solid;
+}
+h1{
+    font-family: 'Love Ya Like A Sister', cursive;
+    margin: 0;
+    padding: 2%;
+    margin-left: 3%;
+    color: white;
+	animation: slide-in-animation 1s ease-out; 
+}
+@keyframes slide-in-animation {
+    0%{
+        transform: translateX(-100%);
+        opacity: 0;
+        
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

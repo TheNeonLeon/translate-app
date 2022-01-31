@@ -35,4 +35,4 @@ const TranslationPage = () => {
     )
   };
 
-export default TranslationPage;
+export default withAuth(TranslationPage);

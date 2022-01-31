@@ -1,10 +1,11 @@
-import TranslationsProvider from "./TranslationsContext"
+import UserProvider from "./UserContext";
 
-const AppContext = (props) =>{
+const AppContext = ({children}) => {
+    
     return (
-        <TranslationsProvider>
-            {props.children}
-        </TranslationsProvider>
+        <UserProvider>
+            { children }
+        </UserProvider>
     )
 }
-export default AppContext
+export default AppContext;
