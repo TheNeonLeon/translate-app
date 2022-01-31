@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import {useForm} from 'react-hook-form'
+import { STORAGE_KEY_USER } from '../../storage/storageKeys';
 
 const translationConfig = {
     required: true
 }
 const TranslationUserInputForm = (props) => {
     const {register, handleSubmit, formState: {errors}} = useForm();
-    const [translations, setTranslations] = useState(JSON.parse(localStorage.getItem('translations')));
+    const user = JSON.parse(localStorage.getItem(STORAGE_KEY_USER));
+    const [translations, setTranslations] = useState({text: user.translations, deleted: user.deleted});
     //console.log(translations);
     //const [user, setUser] = useState([]);
     useEffect(() => {
