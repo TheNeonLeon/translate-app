@@ -1,10 +1,12 @@
 import {React, useState, useEffect} from 'react';
 import TranslationUserInputForm from '../components/Translation/TranslationUserInputForm';
 import TranslationOutputBox from '../components/Translation/TranslationOutputBox';
+import withAuth from '../hoc/withAuth';
 
 const TranslationPage = () => {
 
   const [translationArray, setTranslationArray] = useState([]);
+  //const [translations, setTranslations] = useState(JSON.parse(localStorage.getItem('translations')));
 
   const processText = (text) => {
     const translations = JSON.parse(localStorage.getItem('translations'));
@@ -34,4 +36,4 @@ const TranslationPage = () => {
     )
   };
 
-export default TranslationPage;
+export default withAuth(TranslationPage);

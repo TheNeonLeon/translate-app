@@ -1,6 +1,5 @@
 import React from 'react';
-import Profile from '../components/Profile/Profile'
-import TranslationList from '../components/Profile/TranslationList';
+import withAuth from '../hoc/withAuth';
 
 const ProfilePage = () => {
   return (
@@ -10,4 +9,4 @@ const ProfilePage = () => {
   );
 };
 
-export default ProfilePage;
+export default withAuth(ProfilePage);
