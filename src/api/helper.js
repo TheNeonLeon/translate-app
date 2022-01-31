@@ -1,4 +1,4 @@
-const apiKey = process.env.REACT_APP_BASE_API_URL;
+const apiKey = process.env.REACT_APP_API_KEY;
 
 //headerCreate - to make sure JSON data is sent to the API
 export const headerCreate = () => {
