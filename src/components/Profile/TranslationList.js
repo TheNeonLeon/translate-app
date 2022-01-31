@@ -1,5 +1,4 @@
-import React, { useContext } from 'react';
-import { TranslationsContext } from '../../context/TranslationsContext';
+import React from 'react';
 
 
  const TranslationList = () => {

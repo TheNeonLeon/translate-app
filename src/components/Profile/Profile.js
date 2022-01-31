@@ -1,24 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import TranslationList from './TranslationList';
+import { STORAGE_KEY_USER } from '../../storage/storageKeys';
 
  const Profile = () => {
+  const text = JSON.parse(localStorage.getItem('translations'));
+
+  const [translation, setTranslation] = useState([{text: text.text, deleted: text.deleted}])
 
   const translations = localStorage.getItem('translations');
-  JSON.parse(translations)
-
-  console.log(translations)
-  const handleDelete = () => {
-  //  let slice = translations.text.slice(Math.max(translations.text.length - 10, 1))
-    localStorage.removeItem(translations)
   
-  console.log(translations.text)
+
+  console.log(translation)
+
+
+  const handleDelete = () => {
+   
+  
+  console.log("Translations:", translation)
 }
 
   return (
     <>
     <TranslationList />
         <h1>Profile</h1>
-        <p>{translations}</p>
+        <ul>
+          {translation.map(text => 
+            <li key={text}>
+              <p>{text.text}</p>
+            </li>
+          )}
+        </ul>
         <button onClick={handleDelete}>Delete translations</button>
     </>
   )
