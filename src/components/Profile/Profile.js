@@ -7,21 +7,31 @@ import { STORAGE_KEY_USER } from '../../storage/storageKeys';
 
   const [translation, setTranslation] = useState([{text: text.text, deleted: text.deleted}])
 
-  const translations = localStorage.getItem('translations');
   
 
   console.log(translation)
 
+const getBooleans = translation[0].deleted;
+
+const logOutButton = () => {
+  localStorage.clear();
+  window.location.reload();
+  console.log("User logged out")
+}
 
   const handleDelete = () => {
-   
-  
-  console.log("Translations:", translation)
+  let go =  getBooleans.forEach(element => element = true)
+
+    translation[0].text = []
+
+  console.log(go)
+  console.log("Translations:", translation[0])
 }
 
   return (
     <>
     <TranslationList />
+    <button onClick={logOutButton}>Log out</button>
         <h1>Profile</h1>
         <ul>
           {translation.map(text => 
