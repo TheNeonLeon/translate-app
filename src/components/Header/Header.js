@@ -4,7 +4,7 @@ const Header = () => {
   return (
   <div>
       <header>
-          <h1>Lost In Translation</h1>
+          <h1 className='header-text'>Lost In Translation</h1>
       </header>
   </div>
   );
