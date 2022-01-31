@@ -1,5 +1,6 @@
 import './App.css';
-import {BrowserRouter, Routes} from 'react-router-dom'
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import TranslationPage from './views/TranslationPage';
 import Header from './components/Header/Header';
 function App() {
   return (
@@ -7,6 +8,7 @@ function App() {
     <Header />
       <div className="App">
         <Routes>
+          <Route path="/" element={<TranslationPage/>} />
         </Routes>
       </div>
     </BrowserRouter>
