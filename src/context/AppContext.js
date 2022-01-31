@@ -1,10 +1,13 @@
 import UserProvider from "./UserContext";
+import TranslationsProvider from "./TranslationsContext";
 
 const AppContext = ({children}) => {
     
     return (
         <UserProvider>
-            { children }
+            <TranslationsProvider>
+                { children }
+            </TranslationsProvider>
         </UserProvider>
     )
 }
