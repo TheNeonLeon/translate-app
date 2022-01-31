@@ -1,10 +1,10 @@
 //Imports
 import { useEffect, useState } from "react";
 import { appendErrors, useForm } from "react-hook-form";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { userLogin } from '../../api/user';
+import { useUser } from "../../context/UserContext";
 import { readTheStorage, saveToStorage } from "../../storage/storage";
-import './StyleFolder/Login.css';
 
 //Variable that shows the user needs to input a name
 const usernameRequirement = {
@@ -13,11 +13,19 @@ const usernameRequirement = {
 
 //LoginForm - Function to Login
 const LoginForm = () => {
+
     const {
         register,
         handleSubmit,
         formState: { errors }
     } = useForm();
+
+    const {
+        user,
+        setUser
+    } = useUser();
+
+    const navigation = useNavigate()
 
     //state for showing you pressed the button and are continuing
     const [ loadingText, setLoadingText ] = useState(false);
@@ -25,18 +33,23 @@ const LoginForm = () => {
     const [ errorMessageApi, setApiError ] = useState(null);
 
     //useEffect - side effect to navigate to Translation Page if input of name was successful
-    useEffect(() => {}, [])
+    useEffect(() => {
+        if (user !== null) {
+            navigation('translation')
+        }
+    }, [ user, navigation ])
 
     //onSubmit - function that prevents page from reloading
     const onSubmit = async ({ username }) => {
         setLoadingText(true)
-        const [ error, user ] = await userLogin(username)
+        const [ error, responseOfUser ] = await userLogin(username)
 
         if (error !== null) {
             setApiError(error)
         }
-        if (user !== null) {
-            saveToStorage('LostInTranslation-User', user)
+        if (responseOfUser !== null) {
+            saveToStorage('LostInTranslation-User', responseOfUser)
+            setUser(responseOfUser)
         }
         setLoadingText(false)
     };
