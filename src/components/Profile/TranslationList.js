@@ -1,17 +1,15 @@
-import React from 'react';
-import { TranslationContext } from '../../context/TranslationsContext';
+import React, { useContext } from 'react';
+import { TranslationsContext } from '../../context/TranslationsContext';
+
 
  const TranslationList = () => {
 
-  const {translations} = TranslationContext()
+
   return (
-    <TranslationList.Consumer>
   <div>
       <ul>
-          {translations}
       </ul>
   </div>
-  </TranslationList.Consumer>
   );
 };
 
