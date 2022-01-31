@@ -2,7 +2,7 @@ import React from 'react';
 const TranslationOutputBox = ({translation}) => {
     const alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
     const translate = translation.map((character, index) => {
-        if(!alphabet.includes(character)){
+        if(!alphabet.includes(character.toLowerCase())){
             return;
         }
         const char = character.toLowerCase();
