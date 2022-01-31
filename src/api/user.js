@@ -1,5 +1,5 @@
 //Imports
-import { headerCreate } from './helper'
+import { headerCreate } from './helper';
 
 const userApiUrl = process.env.REACT_APP_BASE_API_URL;
 
@@ -8,7 +8,7 @@ const userCheck = async (username) => {
     try {
         const response = await fetch(`${userApiUrl}?username=${username}`)
         if (!response.ok) {
-            throw new Error ('Could not complete the request')
+            throw new Error ('Could not complete the request.')
         }
         const data = await response.json();
         return [ null, data ]
@@ -16,11 +16,10 @@ const userCheck = async (username) => {
     catch(error) {
         return [ error.message, [] ]
     }
-}
+};
 
 //userCreate - Function to create a new user
 const userCreate = async (username) => {
-
     try {
         const response = await fetch(userApiUrl, {
             method: 'POST',
@@ -31,30 +30,28 @@ const userCreate = async (username) => {
             })
         })
         if (!response.ok) {
-            throw new Error (`Your name has to be something, right?`)
+            throw new Error ('Your name has to be something, right?');
         }
-        const data = await response.json()
+        const data = await response.json();
         return [ null, data ]
     }
     catch(error) {
         return [ error.message, [] ]
     }
-}
+};
 
-//userLogin - Function
+//userLogin - Function for the user to log in
 export const userLogin =  async (username) => {
     const [ errorCheck, user ] = await userCheck(username)
 
     if (errorCheck !== null) {
-        console.log("We got error")
+        console.log("We got an error.");
         return [ errorCheck, null ]
     }
 
     if (user.length > 0) {
-        console.log("user is not empty ",user)
+        console.log("The name is not empty.");
         return [ null, user.pop() ]
     }
-    console.log("No user, no error", user);
-    return await userCreate(username)
-
-}
+        console.log("No user, no error");
+        return await userCreate(username) };
