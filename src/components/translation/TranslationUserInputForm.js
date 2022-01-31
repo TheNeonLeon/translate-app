@@ -6,11 +6,11 @@ const translationConfig = {
 }
 const TranslationUserInputForm = (props) => {
     const {register, handleSubmit, formState: {errors}} = useForm();
-    const [translations, setTranslations] = useState([]);
+    /*const [translations, setTranslations] = useState([]);
     const [user, setUser] = useState([]);
     useEffect(() => {
 
-    }, []);
+    }, []);*/
 
 
 
