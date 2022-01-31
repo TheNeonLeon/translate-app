@@ -28,9 +28,9 @@ const LoginForm = () => {
 
     const navigation = useNavigate()
 
-    //state for showing you pressed the button and are continuing
+    //state - for showing you pressed the button and are continuing
     const [ loadingText, setLoadingText ] = useState(false);
-    //state for showing API error message
+    //state - for showing API error message
     const [ errorMessageApi, setApiError ] = useState(null);
 
     //useEffect - side effect to navigate to Translation Page if input of name was successful
