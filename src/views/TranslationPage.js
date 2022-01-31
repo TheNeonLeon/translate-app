@@ -5,6 +5,7 @@ import TranslationOutputBox from '../components/Translation/TranslationOutputBox
 const TranslationPage = () => {
 
   const [translationArray, setTranslationArray] = useState([]);
+  //const [translations, setTranslations] = useState(JSON.parse(localStorage.getItem('translations')));
 
   const processText = (text) => {
     const translations = JSON.parse(localStorage.getItem('translations'));

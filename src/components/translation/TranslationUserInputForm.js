@@ -6,18 +6,21 @@ const translationConfig = {
 }
 const TranslationUserInputForm = (props) => {
     const {register, handleSubmit, formState: {errors}} = useForm();
-    /*const [translations, setTranslations] = useState([]);
-    const [user, setUser] = useState([]);
+    const [translations, setTranslations] = useState(JSON.parse(localStorage.getItem('translations')));
+    //console.log(translations);
+    //const [user, setUser] = useState([]);
     useEffect(() => {
+        console.log(translations)
+    }, [translations]);
 
-    }, []);*/
-
-
-
-    const onSubmit = async ({translationInput}) => {
+    const onSubmit =({translationInput}) => {
+        //const textArray = translations.text;
+        //const booleanArray = translations.deleted;
+        //textArray.push(translationInput);
+        //booleanArray.push(false);
+        setTranslations({text: [...translations.text, translationInput], deleted: [...translations.deleted, false]});
         props.performTranslation(translationInput);
         document.getElementById("inputForm").reset();
-
     }
 
     const errorMessage = (() => {
