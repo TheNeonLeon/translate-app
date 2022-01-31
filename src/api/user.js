@@ -26,7 +26,8 @@ const userCreate = async (username) => {
             headers: headerCreate(),
             body: JSON.stringify({
                 username,
-                translations: []
+                translations: [],
+                deleted: []
             })
         })
         if (!response.ok) {
@@ -51,7 +52,11 @@ export const userLogin =  async (username) => {
 
     if (user.length > 0) {
         console.log("The name is not empty.");
-        return [ null, user.pop() ]
+        const newUser = user.pop();
+        if(!newUser.deleted){
+            newUser.deleted = [];
+        }
+        return [ null, newUser ]
     }
         console.log("No user, no error");
         return await userCreate(username) };
