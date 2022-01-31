@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {useForm} from 'react-hook-form'
 
 const translationConfig = {
@@ -6,10 +6,18 @@ const translationConfig = {
 }
 const TranslationUserInputForm = (props) => {
     const {register, handleSubmit, formState: {errors}} = useForm();
+    const [translations, setTranslations] = useState([]);
+    const [user, setUser] = useState([]);
+    useEffect(() => {
 
-    const onSubmit = ({translationInput}) => {
-        
+    }, []);
+
+
+
+    const onSubmit = async ({translationInput}) => {
         props.performTranslation(translationInput);
+        document.getElementById("inputForm").reset();
+
     }
 
     const errorMessage = (() => {
@@ -23,13 +31,13 @@ const TranslationUserInputForm = (props) => {
 
     return (
         <>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <fieldset>
+            <form id="inputForm" onSubmit={handleSubmit(onSubmit)}>
+                <fieldset id="translationInput">
                     <label htmlFor="translationInput">Text to translate: </label>
                     <input type="text"  {...register("translationInput", translationConfig)} />
+                    <button type="submit" >Translate</button>
                     {errorMessage}
                 </fieldset>
-                <button type="submit" >Translate</button>
             </form>
         </>
     )

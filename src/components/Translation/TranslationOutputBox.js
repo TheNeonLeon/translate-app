@@ -17,7 +17,7 @@ const TranslationOutputBox = ({translation}) => {
         //<textarea readOnly value={translate}>
             
         //</textarea>
-        <div id="textarea">
+        <div id="imagefield">
 
             {translate}
       
