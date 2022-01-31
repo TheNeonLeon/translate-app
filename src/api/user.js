@@ -1,7 +1,7 @@
 //Imports
 import { headerCreate } from './helper'
 
-const userApiUrl = process.env.BASE_API_URL;
+const userApiUrl = process.env.REACT_APP_BASE_API_URL;
 
 //userCheck - Function to check if the user exist in the database
 const userCheck = async (username) => {
@@ -10,7 +10,7 @@ const userCheck = async (username) => {
         if (!response.ok) {
             throw new Error ('Could not complete the request')
         }
-        const data = await response.json
+        const data = await response.json();
         return [ null, data ]
     }
     catch(error) {
@@ -33,7 +33,7 @@ const userCreate = async (username) => {
         if (!response.ok) {
             throw new Error (`Your name has to be something, right?`)
         }
-        const data = await response.json
+        const data = await response.json()
         return [ null, data ]
     }
     catch(error) {
@@ -46,13 +46,15 @@ export const userLogin =  async (username) => {
     const [ errorCheck, user ] = await userCheck(username)
 
     if (errorCheck !== null) {
+        console.log("We got error")
         return [ errorCheck, null ]
     }
 
     if (user.length > 0) {
+        console.log("user is not empty ",user)
         return [ null, user.pop() ]
     }
-
+    console.log("No user, no error", user);
     return await userCreate(username)
 
 }
