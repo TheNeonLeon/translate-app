@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { userLogin } from '../../api/user';
 import { useUser } from "../../context/UserContext";
 import { readTheStorage, saveToStorage } from "../../storage/storage";
+import { STORAGE_KEY_USER } from "../../storage/storageKeys";
 
 //Variable that shows the user needs to input a name
 const usernameRequirement = {
@@ -48,7 +49,7 @@ const LoginForm = () => {
             setApiError(error)
         }
         if (responseOfUser !== null) {
-            saveToStorage('LostInTranslation-User', responseOfUser)
+            saveToStorage(STORAGE_KEY_USER, responseOfUser)
             setUser(responseOfUser)
         }
         setLoadingText(false)
