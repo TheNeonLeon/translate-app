@@ -19,7 +19,9 @@ function App() {
     <Header />
       <div className="App">
         
-          <Routes><Route path = "/" element = {<LoginPage/>}></Route></Routes>
+          <Routes>
+            <Route path = "/" element = {<LoginPage/>}></Route>
+          </Routes>
           
           <TranslationsProvider>
             <Routes>
