@@ -3,6 +3,12 @@ section {
   background-color: #FFC75F;
 }
 
+.card {
+  width: 20rem;
+  border-radius: 35px;
+  margin: 0 auto 90px;
+}
+
 .section-text {
   font-family: 'Love Ya Like A Sister', cursive;
   color:#fff;
@@ -15,9 +21,11 @@ section {
   text-align: center;
   }
 
-  .input-textbox {
-
+  .userInput {
+    border-radius: 27px;
+    font-family: 'Sanchez', serif;
   }
+
 
 
   
