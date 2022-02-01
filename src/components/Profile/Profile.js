@@ -1,12 +1,15 @@
 import React from 'react';
 import { STORAGE_KEY_USER } from '../../storage/storageKeys';
 import { useUser } from '../../context/UserContext';
-import {  saveToStorage } from '../../storage/storage';
+import {  readTheStorage, saveToStorage } from '../../storage/storage';
 import { patchTranslations } from '../../api/user';
 import withAuth from '../../hoc/withAuth';
 
 const Profile = () => {
   const [user, setUser] = useUser();
+  /*if(user === null){
+    setUser(readTheStorage(STORAGE_KEY_USER));
+  }*/
   const translations = [...user.translations];
   const deleted = [...user.deleted];
 

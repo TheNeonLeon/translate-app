@@ -15,12 +15,6 @@ const TranslationPage = () => {
   const [translationArray, setTranslationArray] = useState([]);
   const [sendToAPI, setSendToAPI] = useState(false);
 
-  const navigate = useNavigate();
-
-  const goToProfile = () => {
-    //Sends user to profile when button is clicked. 
-    navigate("/profile")
-  }
   
   const processText = (text) => {
     //When TranslationUserInputForm sends a text for translation this method both updates translationArray for the other child component and stores the new text in the user state and localstorage and api.
