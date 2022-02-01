@@ -50,3 +50,4 @@ No license.
 - [Figma](https://www.figma.com/file/EOYAJTVYD86sPzNOdRSU5o/translate-app?node-id=0%3A1)
 - [Heroku](https://www.heroku.com/)
 - [readme-template](https://gist.github.com/DomPizzie/7a5ff55ffa9081f2de27c315f5018afc)
+- [Dewald Els](https://gitlab.com/sumodevelopment)
