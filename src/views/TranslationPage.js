@@ -1,32 +1,27 @@
-import {React, useState, useEffect} from 'react';
+import {React, useState} from 'react';
 import TranslationUserInputForm from '../components/Translation/TranslationUserInputForm';
 import TranslationOutputBox from '../components/Translation/TranslationOutputBox';
 import withAuth from '../hoc/withAuth';
+import { STORAGE_KEY_USER } from '../storage/storageKeys';
+import { saveToStorage } from '../storage/storage';
+import { useUser } from '../context/UserContext';
+
 
 const TranslationPage = () => {
-
+  console.log("TranslationPage")
+  //const user = readTheStorage(STORAGE_KEY_USER);
+  const [user, setUser] = useUser();
   const [translationArray, setTranslationArray] = useState([]);
-  //const [translations, setTranslations] = useState(JSON.parse(localStorage.getItem('translations')));
-
   const processText = (text) => {
-    const translations = JSON.parse(localStorage.getItem('translations'));
-    if(translations){
-      translations.text.push(text);
-      translations.deleted.push(false);
-      localStorage.setItem("translations", JSON.stringify(translations));
-    }
-    else{
-      const newTranslations = {text: [], deleted: []};
-      newTranslations.text.push(text);
-      newTranslations.deleted.push(false);
-      localStorage.setItem("translations", JSON.stringify(newTranslations));
-    }
+    const newUser = {...user, translations: [...user.translations, text], deleted: [...user.deleted, false]};
+    setUser(newUser);
+    saveToStorage(STORAGE_KEY_USER, newUser);
     const chars = text.split("");
     setTranslationArray(chars);
   }
-  useEffect(() => {
+  /*useEffect(() => {
 
-  }, [translationArray]);
+  }, [translationArray]);*/
 
     return (
       <div>

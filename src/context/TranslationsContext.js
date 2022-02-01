@@ -1,4 +1,6 @@
 import { createContext, useContext, useState } from "react";
+import { readTheStorage } from "../storage/storage";
+import { STORAGE_KEY_USER } from "../storage/storageKeys";
 
 export const TranslationsContext = createContext();
 
@@ -7,14 +9,9 @@ export const useTranslations = () => {
     return useContext(TranslationsContext);
 }
 
-/*const storageRead = (key) => {
-    const user = localStorage.getItem(key);
-    return user.translations;
-}*/
-
 const TranslationsProvider = ({children}) => {
-
-    const [translations, setTranslations] = useState(null);
+    const user = readTheStorage(STORAGE_KEY_USER);
+    const [translations, setTranslations] = useState({text: user.translations, deleted: user.deleted});
 
     const state = {
         translations,
