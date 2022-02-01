@@ -66,6 +66,7 @@ const LoginForm = () => {
 
         return (
         <>
+
             <form onSubmit={ handleSubmit(onSubmit) }>
                 <label htmlFor='username'>⌨ | </label>
                 <input 
@@ -77,7 +78,7 @@ const LoginForm = () => {
                 { displayErrorMessage }
                 { loadingText && <p>To be continued...</p>}
                 { errorMessageApi && <p>{ errorMessageApi }</p>}
-            </form>
+            </form>  
         </>
         )
 }
