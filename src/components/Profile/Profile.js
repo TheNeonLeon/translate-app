@@ -7,40 +7,29 @@ import { useUser } from '../../context/UserContext';
 import { get } from 'react-hook-form';
 import { readTheStorage } from '../../storage/storage';
 import { useNavigate } from 'react-router-dom';
+import withAuth from '../../hoc/withAuth';
+
 
  const Profile = () => {
   const userStorage = readTheStorage(STORAGE_KEY_USER);
-  
-  
-  // const [translation, setTranslation] = useState([{text: text.text, deleted: text.deleted}])
-  // const {translation, setTranslation} = useTranslations()
+
   const [user, setUser] = useUser();
   console.log(user);
   console.log(user.username);
 
-  // const text = user.translation;
-
-
-  // const getBooleans = translation[0].deleted;
   const navigate = useNavigate();
 
 
 const logOutButton = () => {
+  navigate("/");
   localStorage.clear();
-   window.location.reload();
-   navigate("/");
+    window.location.reload();
+
   console.log("User logged out");
 }
 
   const handleDelete = () => {
-  // let go =  getBooleans.forEach(element => element = true);
 
-  // let getText = translation[0].text;
-  // console.log(getText);
-  // getText.slice(Math.max(getText.length - 10, 1));
-
-  // // console.log(go);
-  // console.log("Translations:", translation[0]);
 }
 
   return (
@@ -59,4 +48,4 @@ const logOutButton = () => {
   )
 };
 
-export default Profile
+export default withAuth(Profile)
