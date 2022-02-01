@@ -1,5 +1,4 @@
 //Imports
-import { useUser } from "../context/UserContext";
 import { headerCreate } from "./helper";
 
 const userApiUrl = process.env.REACT_APP_BASE_API_URL;
@@ -58,6 +57,7 @@ export const patchTranslations = async (userId, payload) => {
     .catch((error) => {
         return [error.message, null];
     });
+    console.log("In API PATCH, user: ",user)
     return [null, user];
 };
 
