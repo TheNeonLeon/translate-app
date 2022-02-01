@@ -47,6 +47,9 @@ const logOutButton = () => {
   const handleDelete = async() => {
     //If user wishes to delete the last 10 translations then they are added back into translations array and marked as deleted with the deleted array.
     //Then the new versions of the translations and deleted arrays are stored in an object and sent with the user.id to be patched in the API, and changed in state and localStorage.
+    if(translationsToDisplay.length === 0){
+      return;
+    }
     for(let i = 0; i < translationsToDisplay.length; i++){
       translations.push(translationsToDisplay[i]);
       deleted.push(true);
