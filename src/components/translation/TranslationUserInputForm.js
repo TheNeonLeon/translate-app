@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form'
-
+import arrow from '../../images/arrow.svg'
+import './TranslationUserInput.css'
 
 const translationConfig = {
     required: true
@@ -30,7 +31,7 @@ const TranslationUserInputForm = (props) => {
                 <fieldset id="translationInput">
                     <label htmlFor="translationInput">Text to translate: </label>
                     <input type="text"  {...register("translationInput", translationConfig)} />
-                    <button type="submit" >Translate</button>
+                    <button className='translate-button' type="submit" ><img src={arrow}></img></button>
                     {errorMessage}
                 </fieldset>
             </form>

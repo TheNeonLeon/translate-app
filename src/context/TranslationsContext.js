@@ -2,7 +2,7 @@ import { createContext, useContext, useState } from "react";
 import { readTheStorage } from "../storage/storage";
 import { STORAGE_KEY_USER } from "../storage/storageKeys";
 
-const TranslationsContext = createContext();
+export const TranslationsContext = createContext();
 
 
 export const useTranslations = () => {

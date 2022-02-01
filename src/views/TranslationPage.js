@@ -5,28 +5,39 @@ import withAuth from '../hoc/withAuth';
 import { STORAGE_KEY_USER } from '../storage/storageKeys';
 import { saveToStorage } from '../storage/storage';
 import { useUser } from '../context/UserContext';
+import { patchTranslations } from '../api/user';
+import { useNavigate } from 'react-router-dom';
 
 
 const TranslationPage = () => {
-  console.log("TranslationPage")
-  //const user = readTheStorage(STORAGE_KEY_USER);
   const [user, setUser] = useUser();
   const [translationArray, setTranslationArray] = useState([]);
+  const [sendToAPI, setSendToAPI] = useState(false);
+
+  const navigate = useNavigate();
+
+  const goToProfile = () => {
+    navigate("/profile")
+  }
+  
   const processText = (text) => {
+    setSendToAPI(true);
     const newUser = {...user, translations: [...user.translations, text], deleted: [...user.deleted, false]};
     setUser(newUser);
     saveToStorage(STORAGE_KEY_USER, newUser);
     const chars = text.split("");
     setTranslationArray(chars);
+    patchTranslations(newUser.id, {translations: newUser.translations, deleted: newUser.deleted});
+    setSendToAPI(false);
   }
-  /*useEffect(() => {
 
-  }, [translationArray]);*/
 
     return (
       <div>
         <TranslationUserInputForm performTranslation={processText} />
+        { sendToAPI && <p>Please wait until this message goes away...</p>}
         <TranslationOutputBox translation={translationArray}/>
+        <button onClick={ goToProfile}>Click</button>
       </div>
     )
   };
