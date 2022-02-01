@@ -5,9 +5,11 @@ import './HeaderStyle.css'
 import userIcon from '../../images/user-icon.svg'
 
 const Header = () => {
+  //state for header
   const [user, setUser] = useUser();
   return (
   <div>
+    
       <header className='header'>
           <h1 className='header-text'>Lost In Translation</h1>
           {user !== null &&
