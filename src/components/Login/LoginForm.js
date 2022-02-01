@@ -71,12 +71,12 @@ const LoginForm = () => {
         <>
 
             <form onSubmit={ handleSubmit(onSubmit) }>
-        <div class="card">
-            <div class="card-body"> 
+        <div className="card">
+            <div className="card-body"> 
             <label></label>  
                 <label htmlFor='username' > ⌨ | </label>
                 <input
-                    class="userInput" 
+                    className="userInput" 
                     type = 'text'
                     placeholder = "What's your name?"
                     {...register('username', usernameRequirement)} 
