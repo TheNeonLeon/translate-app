@@ -4,14 +4,13 @@ import { readTheStorage } from "../storage/storage";
 import { STORAGE_KEY_USER } from "../storage/storageKeys";
 
 const withAuth = Component => props => {
+    //A HOC that makes sure people can't sneakily use pages they aren't supposed to get access to without logging in.
     const user = readTheStorage(STORAGE_KEY_USER);
     if (user !== null) {
         //render out the component
-        console.log("WithAuth - Render new page!")
         return <Component {...props}/>
     } else {
         //Navigate back to Login
-        console.log("WithAuth - Render start page!")
         return <Navigate to = "/"/>
     }
 }

@@ -1,16 +1,17 @@
 //Imports
 import { createContext, useContext, useState } from "react";
 
-//UserContext - a context to exposing the value
+//UserContext - a context for exposing the value
 const UserContext = createContext();
 
-//exposing the value
+
 export const useUser = () => {
+    //exposing the value
     return useContext(UserContext);
 }
 
 const UserProvider = ({ children }) => {
-
+    //The provider where a state is initialized before making the state available to the user.
     const [ user, setUser ] = useState(null);
 
     const state = [
