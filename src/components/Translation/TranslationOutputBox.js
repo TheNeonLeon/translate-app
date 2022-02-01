@@ -14,7 +14,6 @@ const TranslationOutputBox = ({translation}) => {
         const char = character.toLowerCase();
         const filepath = "assets/"+char+".png" 
         return (
-            //<span key={index}><img src={`.../assets/${char}.png`} alt={`A sign-language-sign corresponding to the letter ${char}`}></img></span>
             <span key={index}><img contentEditable="false" src={filepath} alt='A sign-language-sign corresponding to a letter of the alphabet.' width="70" height="70"/></span>
         );
     });
