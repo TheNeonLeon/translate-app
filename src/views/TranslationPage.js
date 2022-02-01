@@ -40,7 +40,6 @@ const TranslationPage = () => {
         <TranslationUserInputForm performTranslation={processText} />
         { sendToAPI && <p>Please wait until this message goes away...</p>}
         <TranslationOutputBox translation={translationArray}/>
-        <button onClick={ goToProfile}>Go to profile</button>
       </div>
     )
   };

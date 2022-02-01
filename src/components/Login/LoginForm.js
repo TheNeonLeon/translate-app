@@ -7,6 +7,8 @@ import { useUser } from "../../context/UserContext";
 import { saveToStorage } from "../../storage/storage";
 import { STORAGE_KEY_USER } from "../../storage/storageKeys";
 
+import '../../styleFolder/body.css'
+
 const usernameRequirement = {
     //Variable that shows the user needs to input a name
     required: true
@@ -81,7 +83,7 @@ const LoginForm = () => {
                 />
                 <button 
                 type = 'submit'
-                class="rounded-circle"
+                className="rounded-circle"
                 disabled={ loadingText }>▶</button><br></br>
                 { displayErrorMessage }
                 { loadingText && <p>To be continued...</p>}
