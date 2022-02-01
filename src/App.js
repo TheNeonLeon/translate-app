@@ -11,6 +11,8 @@ import {
 } from 'react-router-dom';
 import UserProvider from './context/UserContext';
 
+import Profile from './components/Profile/Profile';
+
 function App() {
   return (
     <UserProvider>
@@ -20,7 +22,7 @@ function App() {
             <Routes>
             <Route path = "/" element = {<LoginPage/>}></Route>
             <Route path = "/translation" element = {<TranslationPage/>}></Route>
-            <Route path = "/profile" element = {<ProfilePage/>}></Route>
+            <Route path = "/profile" element = {<Profile/>}></Route>
             </Routes>
       </div>
     </BrowserRouter>
