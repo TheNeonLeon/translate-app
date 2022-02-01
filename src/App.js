@@ -18,19 +18,11 @@ function App() {
     <BrowserRouter>
     <Header />
       <div className="App">
-        
-          <Routes>
-            <Route path = "/" element = {<LoginPage/>}></Route>
-          </Routes>
-          
-          <TranslationsProvider>
             <Routes>
+            <Route path = "/" element = {<LoginPage/>}></Route>
             <Route path = "/translation" element = {<TranslationPage/>}></Route>
             <Route path = "/profile" element = {<ProfilePage/>}></Route>
             </Routes>
-          </TranslationsProvider>
-          
-        
       </div>
     </BrowserRouter>
     </UserProvider>

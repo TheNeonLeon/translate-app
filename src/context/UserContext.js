@@ -10,16 +10,17 @@ const UserContext = createContext();
 export const useUser = () => {
     return useContext(UserContext);
 }
+//export const TodosContext = createContext([[],() => {}])
 
 //UserProvider - a provider to managing state
 const UserProvider = ({ children }) => {
 
-    const [ user, setUser ] = useState(readTheStorage(STORAGE_KEY_USER));
+    const [ user, setUser ] = useState(null);
 
-    const state = {
+    const state = [
         user,
         setUser
-    }
+    ]
     return (
         <UserContext.Provider value = { state }>
             { children }

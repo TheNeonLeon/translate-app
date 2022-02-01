@@ -5,6 +5,7 @@ import LoginForm from '../components/Login/LoginForm';
 
 //LoginPage - Function that shows the Start/Login page
 const LoginPage = () => {
+  console.log("LoginPage")
   return (
     <>
         <h1>Lost in Translation</h1>
