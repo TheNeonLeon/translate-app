@@ -3,6 +3,7 @@ import LoginPage from './views/LoginPage';
 import TranslationPage from './views/TranslationPage';
 import ProfilePage from './views/ProfilePage';
 import Header from './components/Header/Header';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import {
   BrowserRouter,

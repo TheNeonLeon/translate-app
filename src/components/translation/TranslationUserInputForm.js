@@ -29,8 +29,8 @@ const TranslationUserInputForm = (props) => {
         <>
             <form id="inputForm" onSubmit={handleSubmit(onSubmit)}>
                 <fieldset id="translationInput">
-                    <label htmlFor="translationInput">Text to translate: </label>
-                    <input type="text"  {...register("translationInput", translationConfig)} />
+                    <label htmlFor="translationInput"></label>
+                    <input placeholder='Text to translate' type="text"  {...register("translationInput", translationConfig)} />
                     <button className='translate-button' type="submit" ><img src={arrow}></img></button>
                     {errorMessage}
                 </fieldset>
