@@ -7,14 +7,14 @@ import { useUser } from "../../context/UserContext";
 import { saveToStorage } from "../../storage/storage";
 import { STORAGE_KEY_USER } from "../../storage/storageKeys";
 
-//Variable that shows the user needs to input a name
 const usernameRequirement = {
+    //Variable that shows the user needs to input a name
     required: true
 }
 
-//LoginForm - Function to Login
-const LoginForm = () => {
 
+const LoginForm = () => {
+    //LoginForm - Function to Login
     const {
         register,
         handleSubmit,
@@ -30,19 +30,20 @@ const LoginForm = () => {
     //state - for showing API error message
     const [ errorMessageApi, setApiError ] = useState(null);
 
-    //useEffect - side effect to navigate to Translation Page if input of name was successful
+    
     useEffect(() => {
-        console.log("User state changed: ",user)
+        //useEffect - side effect to navigate to Translation Page if input of name was successful
         if (user !== null) {
             navigation('translation')
         }
     }, [ user, navigation ])
 
-    //onSubmit - function that prevents page from reloading
+    
     const onSubmit = async ({ username }) => {
+        //onSubmit - function that prevents page from reloading.
+        //This method sorts out the user, fetching existing user based on the username or creates a new one and updates state.
         setLoadingText(true)
         const [ error, responseOfUser ] = await userLogin(username)
-        console.log("Fetched user",responseOfUser);
         if (error !== null) {
             setApiError(error)
         }
@@ -53,12 +54,12 @@ const LoginForm = () => {
         setLoadingText(false)
     };
 
-    //displayErrorMessage - render function that display error message if the username requirement is not succeeding
+    
     const displayErrorMessage = (() => {
+        //displayErrorMessage - render function that display error message if the username requirement is not succeeding
         if (!errors.username) {
             return null
         }
-
         if (errors.username.type === 'required') {
             return <span>Enter name please...</span>
         }
@@ -66,6 +67,7 @@ const LoginForm = () => {
 
         return (
         <>
+
             <form onSubmit={ handleSubmit(onSubmit) }>
                 <label htmlFor='username'>⌨ | </label>
                 <input 
@@ -77,7 +79,7 @@ const LoginForm = () => {
                 { displayErrorMessage }
                 { loadingText && <p>To be continued...</p>}
                 { errorMessageApi && <p>{ errorMessageApi }</p>}
-            </form>
+            </form>  
         </>
         )
 }
