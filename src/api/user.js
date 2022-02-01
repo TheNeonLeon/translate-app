@@ -60,3 +60,19 @@ export const userLogin =  async (username) => {
     }
         console.log("No user, no error");
         return await userCreate(username) };
+
+
+export const userById = async (userId) => {
+    try {
+        const response = await fetch(`${userApiUrl}/${userId}`)
+        if (!response.ok) {
+            throw new Error ('Your name has to be something, right?');
+        }
+        const data = await response.json();
+        return [ null, data ]
+    }
+    catch(error) {
+        return [ error.message, null ]
+    }
+}
+    
