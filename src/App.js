@@ -9,21 +9,23 @@ import {
   Route,
   Routes
 } from 'react-router-dom';
+import TranslationsProvider from './context/TranslationsContext';
+import UserProvider from './context/UserContext';
 
 function App() {
   return (
+    <UserProvider>
     <BrowserRouter>
     <Header />
       <div className="App">
-        <Routes>
-
-          <Route path = "/" element = {<LoginPage/>}></Route>
-          <Route path = "/translation" element = {<TranslationPage/>}></Route>
-          <Route path = "/profile" element = {<ProfilePage/>}></Route>
-          
-        </Routes>
+            <Routes>
+            <Route path = "/" element = {<LoginPage/>}></Route>
+            <Route path = "/translation" element = {<TranslationPage/>}></Route>
+            <Route path = "/profile" element = {<ProfilePage/>}></Route>
+            </Routes>
       </div>
     </BrowserRouter>
+    </UserProvider>
   );
 }
 

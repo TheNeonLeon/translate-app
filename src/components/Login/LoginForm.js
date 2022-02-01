@@ -21,10 +21,7 @@ const LoginForm = () => {
         formState: { errors }
     } = useForm();
 
-    const {
-        user,
-        setUser
-    } = useUser();
+    const [ user, setUser ] = useUser();
 
     const navigation = useNavigate()
 
@@ -35,6 +32,7 @@ const LoginForm = () => {
 
     //useEffect - side effect to navigate to Translation Page if input of name was successful
     useEffect(() => {
+        console.log("User state changed: ",user)
         if (user !== null) {
             navigation('translation')
         }
@@ -44,7 +42,7 @@ const LoginForm = () => {
     const onSubmit = async ({ username }) => {
         setLoadingText(true)
         const [ error, responseOfUser ] = await userLogin(username)
-
+        console.log("Fetched user",responseOfUser);
         if (error !== null) {
             setApiError(error)
         }

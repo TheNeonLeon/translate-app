@@ -7,9 +7,7 @@ import AppContext from './context/AppContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    <AppContext>
-      <App />
-    </AppContext>
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
