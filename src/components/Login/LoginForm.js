@@ -68,17 +68,27 @@ const LoginForm = () => {
         <>
 
             <form onSubmit={ handleSubmit(onSubmit) }>
-                <label htmlFor='username'>⌨ | </label>
-                <input 
-                    type = 'text' 
+        <div class="card">
+            <div class="card-body"> 
+            <label></label>  
+                <label htmlFor='username' > ⌨ | </label>
+                <input
+                    class="userInput" 
+                    type = 'text'
                     placeholder = "What's your name?"
                     {...register('username', usernameRequirement)} 
                 />
-                <button type = 'submit' disabled={ loadingText }>▶</button><br></br>
+                <button 
+                type = 'submit'
+                class="rounded-circle"
+                disabled={ loadingText }>▶</button><br></br>
                 { displayErrorMessage }
                 { loadingText && <p>To be continued...</p>}
                 { errorMessageApi && <p>{ errorMessageApi }</p>}
-            </form>  
+            </div>
+        </div>   
+    </form>
+   
         </>
         )
 }
