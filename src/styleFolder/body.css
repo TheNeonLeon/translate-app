@@ -6,6 +6,7 @@ section {
 .section-text {
   font-family: 'Love Ya Like A Sister', cursive;
   color:#fff;
+  margin: 0;
 }
 
 .body-text {
