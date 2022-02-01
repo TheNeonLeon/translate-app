@@ -1,6 +1,5 @@
 //Imports
 import { Navigate } from "react-router-dom";
-import { useUser } from "../context/UserContext";
 import { readTheStorage } from "../storage/storage";
 import { STORAGE_KEY_USER } from "../storage/storageKeys";
 

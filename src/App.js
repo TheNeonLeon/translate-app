@@ -9,7 +9,6 @@ import {
   Route,
   Routes
 } from 'react-router-dom';
-import TranslationsProvider from './context/TranslationsContext';
 import UserProvider from './context/UserContext';
 
 function App() {

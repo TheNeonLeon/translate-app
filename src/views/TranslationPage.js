@@ -1,10 +1,9 @@
-import {React, useState, useEffect} from 'react';
+import {React, useState} from 'react';
 import TranslationUserInputForm from '../components/Translation/TranslationUserInputForm';
 import TranslationOutputBox from '../components/Translation/TranslationOutputBox';
 import withAuth from '../hoc/withAuth';
-import { useTranslations } from '../context/TranslationsContext';
 import { STORAGE_KEY_USER } from '../storage/storageKeys';
-import { readTheStorage, saveToStorage } from '../storage/storage';
+import { saveToStorage } from '../storage/storage';
 import { useUser } from '../context/UserContext';
 
 

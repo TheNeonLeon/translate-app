@@ -1,10 +1,10 @@
 //Imports
 import { useEffect, useState } from "react";
-import { appendErrors, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { userLogin } from '../../api/user';
 import { useUser } from "../../context/UserContext";
-import { readTheStorage, saveToStorage } from "../../storage/storage";
+import { saveToStorage } from "../../storage/storage";
 import { STORAGE_KEY_USER } from "../../storage/storageKeys";
 
 //Variable that shows the user needs to input a name
