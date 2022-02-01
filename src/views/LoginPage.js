@@ -9,11 +9,13 @@ const LoginPage = () => {
   console.log("LoginPage")
   return (
     <>
+    <section>
         <h1 className='section-text'>Lost in Translation</h1>
         <h3 className='body-text'>Get started</h3>
         <div className='input-textbox'>
           <LoginForm/>
-        </div>
+          </div>
+    </section>
     </>
   )
 };
