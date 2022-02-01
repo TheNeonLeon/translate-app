@@ -3,6 +3,8 @@ header{
     margin: 0;
     padding: 0;
     border-bottom: #8080804a 5px solid;
+    display: flex;
+    justify-content: space-between;
 }
 .header-text{
     font-family: 'Love Ya Like A Sister', cursive;
@@ -22,4 +24,19 @@ header{
         transform: translateX(0);
         opacity: 1;
     }
+}
+a{
+    margin-right: 15%;
+    margin-top: 3%;
+    color: white !important;
+    text-decoration: none !important;
+    margin-bottom: 1.5%;
+    padding: 0.5%;
+    background-color:#8080804d;
+    padding-right: 2%;
+    margin-left: 3%;
+    border-radius: 16px;
+}
+.user-image{
+    margin-left: 12px;
 }

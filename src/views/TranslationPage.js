@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 const TranslationPage = () => {
+  //TranslationPage, returns a page with 2 child components.
   const [user, setUser] = useUser();
   const [translationArray, setTranslationArray] = useState([]);
   const [sendToAPI, setSendToAPI] = useState(false);
@@ -17,10 +18,12 @@ const TranslationPage = () => {
   const navigate = useNavigate();
 
   const goToProfile = () => {
+    //Sends user to profile when button is clicked. 
     navigate("/profile")
   }
   
   const processText = (text) => {
+    //When TranslationUserInputForm sends a text for translation this method both updates translationArray for the other child component and stores the new text in the user state and localstorage and api.
     setSendToAPI(true);
     const newUser = {...user, translations: [...user.translations, text], deleted: [...user.deleted, false]};
     setUser(newUser);
@@ -37,7 +40,7 @@ const TranslationPage = () => {
         <TranslationUserInputForm performTranslation={processText} />
         { sendToAPI && <p>Please wait until this message goes away...</p>}
         <TranslationOutputBox translation={translationArray}/>
-        <button onClick={ goToProfile}>Click</button>
+        <button onClick={ goToProfile}>Go to profile</button>
       </div>
     )
   };
