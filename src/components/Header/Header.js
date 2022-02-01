@@ -6,7 +6,7 @@ import userIcon from '../../images/user-icon.svg'
 
 const Header = () => {
   //state for header
-  const [user, setUser] = useUser();
+  const [user] = useUser();
   return (
   <div>
     
@@ -14,7 +14,7 @@ const Header = () => {
           <h1 className='header-text'>Lost In Translation</h1>
           {user !== null &&
             <Link to="/profile">{user.username}
-            <img className='user-image' src={userIcon}></img>
+            <img className='user-image' src={userIcon} alt="user-icon"></img>
             </Link>
             
           }

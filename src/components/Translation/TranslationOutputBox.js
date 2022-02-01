@@ -9,7 +9,7 @@ const TranslationOutputBox = ({translation}) => {
         //Each character is compared to the "alphabet" and any non-alphabetical character is ignored.
         //If character matches alphabet the corresponding picture is fetched and returned as img-tag to the "html" part.
         if(!alphabet.includes(character.toLowerCase())){
-            return;
+            return <span></span>;
         }
         const char = character.toLowerCase();
         const filepath = "assets/"+char+".png" 

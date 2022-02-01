@@ -6,7 +6,6 @@ import { STORAGE_KEY_USER } from '../storage/storageKeys';
 import { saveToStorage } from '../storage/storage';
 import { useUser } from '../context/UserContext';
 import { patchTranslations } from '../api/user';
-import { useNavigate } from 'react-router-dom';
 
 
 const TranslationPage = () => {

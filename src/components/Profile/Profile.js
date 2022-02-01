@@ -1,7 +1,7 @@
 import React from 'react';
 import { STORAGE_KEY_USER } from '../../storage/storageKeys';
 import { useUser } from '../../context/UserContext';
-import {  readTheStorage, saveToStorage } from '../../storage/storage';
+import {  saveToStorage } from '../../storage/storage';
 import { patchTranslations } from '../../api/user';
 import withAuth from '../../hoc/withAuth';
 
@@ -53,6 +53,9 @@ const logOutButton = () => {
     }
     const payload = {translations, deleted};
     const [error, newUser] = await patchTranslations(user.id, payload);
+    if(error){
+      throw new Error(error)
+    }
     setUser(newUser);
     saveToStorage(STORAGE_KEY_USER, newUser);
 }
