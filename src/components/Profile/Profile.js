@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import TranslationList from './TranslationList';
+import React from 'react';
 import { STORAGE_KEY_USER } from '../../storage/storageKeys';
 import { useUser } from '../../context/UserContext';
 import {  saveToStorage } from '../../storage/storage';
 import { patchTranslations } from '../../api/user';
-import { useNavigate } from 'react-router-dom';
 import withAuth from '../../hoc/withAuth';
 
 const Profile = () => {
@@ -12,9 +10,14 @@ const Profile = () => {
   const translations = [...user.translations];
   const deleted = [...user.deleted];
 
+
 const alreadyDeleted = []
 const translationsToDisplay = []
+
 while(translationsToDisplay.length < 10 && translations.length > 0){
+  //while-loop makes sure to extract 10 (or all if fewer) non-deleted stored texts from the translation page.
+  //These are stored temporarily in translationsToDisplay awaiting further action.
+  //alreadyDeleted stores deleted translations that "got in the way" and where they can be accessed and re-pushed if any changes are supposed to be made regarding the user.
   const translation = translations.pop()
   const isDeleted = deleted.pop()
   if(isDeleted){
@@ -24,36 +27,23 @@ while(translationsToDisplay.length < 10 && translations.length > 0){
     translationsToDisplay.push(translation);
   }
 }
+
 for(let i = 0; i < alreadyDeleted.length; i++){
+  //When while-loop is finished we put deleted stuff that got in the way back into the translations-array.
   translations.push(alreadyDeleted[i]);
   deleted.push(true);
 }
-
-  /*useEffect(() => {
-    // console.log('Translation changed')
-    const findUser = async () => {
-      const [error, latestUser] = await userById(user.id)
-      if(error === null){
-        setUser(latestUser)
-      }
-    }
-    findUser()
-  }, [setUser, user.id])*/
-
-
-  const navigate = useNavigate();
-
-
+  
 const logOutButton = () => {
-  navigate("/");
+  //When user wishes to log out the local storage is cleared and user is directed back to login page.
   localStorage.clear();
-    window.location.reload();
-
-  console.log("User logged out");
+  window.location.reload();
 }
 
 
   const handleDelete = async() => {
+    //If user wishes to delete the last 10 translations then they are added back into translations array and marked as deleted with the deleted array.
+    //Then the new versions of the translations and deleted arrays are stored in an object and sent with the user.id to be patched in the API, and changed in state and localStorage.
     for(let i = 0; i < translationsToDisplay.length; i++){
       translations.push(translationsToDisplay[i]);
       deleted.push(true);
@@ -66,12 +56,11 @@ const logOutButton = () => {
 
   return (
     <>
-    <TranslationList />
     <button onClick={logOutButton}>Log out</button>
         <h1>Profile</h1>
         <h3>Welcome <u>{user.username}</u></h3>
         <ul>
-          {/* switch to user transaltions */}
+          {/* The assembled list of translations is iterated over and displayed */}
           {translationsToDisplay.map((text, index) => 
             <li key={index}>
               {text}
